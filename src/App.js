@@ -1,7 +1,7 @@
-const Pet = (props) =>{
+const Pet = ({name,rollno}) =>{
     return React.createElement("div",{},[
-        React.createElement("h1",{},props.name),
-        React.createElement("h2",{},props.rollno)
+        React.createElement("h1",{},name),
+        React.createElement("h2",{},rollno)
     ]);
 };
 

@@ -29772,29 +29772,33 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"Pet.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"SearchParams_Hooks.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = Pet;
+exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function Pet(_ref) {
-  var name = _ref.name,
-      rollno = _ref.rollno;
-  // return React.createElement("div", {}, [
-  //     React.createElement("h1", {}, name),
-  //     React.createElement("h2", {}, rollno)
-  // ]);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, name), /*#__PURE__*/_react.default.createElement("h2", null, rollno));
-}
+var SearchParams_Hooks = function SearchParams_Hooks() {
+  var location = "Mumbai,Mahrashtra";
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "searchparams"
+  }, /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("label", {
+    htmlFor: ""
+  }, "Location", /*#__PURE__*/_react.default.createElement("input", {
+    id: "location",
+    value: location,
+    placeholder: "Location"
+  })), /*#__PURE__*/_react.default.createElement("button", null, "Submit")));
+};
 
-;
+var _default = SearchParams_Hooks;
+exports.default = _default;
 },{"react":"../node_modules/react/index.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
@@ -29802,10 +29806,11 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = require("react-dom");
 
-var _Pet = _interopRequireDefault(require("./Pet"));
+var _SearchParams_Hooks = _interopRequireDefault(require("./SearchParams_Hooks"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import Pet from './Pet';
 var App = function App() {
   // return React.createElement(
   //         "div",
@@ -29816,23 +29821,14 @@ var App = function App() {
   //             React.createElement(Pet,{name:"Aman",rollno:"618"})
   //         ]
   //     );
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Adopt Me!"), /*#__PURE__*/_react.default.createElement(_Pet.default, {
-    name: "Rahul",
-    rollno: "615"
-  }), /*#__PURE__*/_react.default.createElement(_Pet.default, {
-    name: "Saif",
-    rollno: "654"
-  }), /*#__PURE__*/_react.default.createElement(_Pet.default, {
-    name: "Aman",
-    rollno: "618"
-  }));
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_SearchParams_Hooks.default, null));
 };
 
 (0, _reactDom.render)(
 /*#__PURE__*/
 // React.createElement(App),
 _react.default.createElement(App, null), document.getElementById("root"));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./Pet":"Pet.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./SearchParams_Hooks":"SearchParams_Hooks.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

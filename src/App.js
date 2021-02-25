@@ -1,6 +1,7 @@
 import React from 'react'
 import {render} from 'react-dom'
-import Pet from './Pet';
+import SearchParams_Hooks from './SearchParams_Hooks'
+// import Pet from './Pet';
 
 const App = () =>{
     
@@ -16,10 +17,14 @@ const App = () =>{
 
     return(
         <div>
-            <h1>Adopt Me!</h1>
+
+            {/* <h1>Adopt Me!</h1>
             <Pet name="Rahul" rollno="615"/>
             <Pet name="Saif" rollno="654"/>
-            <Pet name="Aman" rollno="618"/>
+            <Pet name="Aman" rollno="618"/> */}
+            
+            <SearchParams_Hooks/>
+
         </div>
     )
 };

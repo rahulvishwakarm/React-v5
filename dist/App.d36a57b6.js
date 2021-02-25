@@ -31518,7 +31518,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _pet = require("@frontendmasters/pet");
+var _pet = _interopRequireWildcard(require("@frontendmasters/pet"));
 
 var _UseDropdown = _interopRequireDefault(require("./UseDropdown"));
 
@@ -31563,6 +31563,20 @@ var UseState = function UseState() {
       breed = _useDropdown4[0],
       BreedDropdown = _useDropdown4[1];
 
+  (0, _react.useEffect)(function () {
+    //Use effect is use to show some thing to the user as soon as API runs , it runs after all the content in above or below it runs
+    setBreads([]);
+    setBreed("");
+
+    _pet.default.breeds(animal).then(function (_ref) {
+      var breeds = _ref.breeds;
+      var breedStrings = breed.map(function (_ref2) {
+        var name = _ref2.name;
+        return name;
+      });
+      setBreeds(breedStrings);
+    }, console.error);
+  });
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "searchparams"
   }, /*#__PURE__*/_react.default.createElement("h1", null, location), /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("label", {
@@ -31574,7 +31588,7 @@ var UseState = function UseState() {
     onChange: function onChange(event) {
       return setLocation(event.target.value);
     }
-  })), /*#__PURE__*/_react.default.createElement(AnimalDropdown, null), /*#__PURE__*/_react.default.createElement(BreedDropdown, null), /*#__PURE__*/_react.default.createElement("button", null, "Submit")));
+  })), /*#__PURE__*/_react.default.createElement(AnimalDropdown, null), /*#__PURE__*/_react.default.createElement(BreedDropdown, null), /*#__PURE__*/_react.default.createElement("button", null, " Submit ")));
 };
 
 var _default = UseState;

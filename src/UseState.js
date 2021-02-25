@@ -1,5 +1,5 @@
-import React,{useState} from 'react';
-import {ANIMALS} from  '@frontendmasters/pet';
+import React,{useState,useEffect} from 'react';
+import pet,{ANIMALS} from  '@frontendmasters/pet';
 import useDropdown from './UseDropdown';
 
 const UseState=()=> {
@@ -11,6 +11,16 @@ const UseState=()=> {
     const [animal,AnimalDropdown] = useDropdown("Animal","dog",ANIMALS);
     const [breed,BreedDropdown] = useDropdown("Breed","",breeds);
 
+    useEffect(()=>{   //Use effect is use to show some thing to the user as soon as API runs , it runs after all the content in above or below it runs
+        setBreads([]);
+        setBreed("");
+
+        pet.breeds(animal).then(({ breeds})=>{
+            const breedStrings =breed.map(({name}) => name);
+            setBreeds(breedStrings);
+        },console.error);
+    });
+
     return (
         <div className="searchparams">
             <h1>{location}</h1>
@@ -20,7 +30,7 @@ const UseState=()=> {
                 </label>
                 <AnimalDropdown/>
                 <BreedDropdown/>
-                <button>Submit</button>
+                <button> Submit </button>
             </form>
         </div>
     )

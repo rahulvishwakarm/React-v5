@@ -29787,7 +29787,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function Pet(_ref) {
   var name = _ref.name,
       rollno = _ref.rollno;
-  return _react.default.createElement("div", {}, [_react.default.createElement("h1", {}, name), _react.default.createElement("h2", {}, rollno)]);
+  // return React.createElement("div", {}, [
+  //     React.createElement("h1", {}, name),
+  //     React.createElement("h2", {}, rollno)
+  // ]);
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, name), /*#__PURE__*/_react.default.createElement("h2", null, rollno));
 }
 
 ;

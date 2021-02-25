@@ -31506,11 +31506,12 @@ var SearchParams_Hooks = function SearchParams_Hooks() {
     onChange: function onChange(e) {
       return setAnimal(e.target.value);
     },
-    onBlue: function onBlue(e) {
+    onBlur: function onBlur(e) {
       return setAnimal(e.target.value);
     }
   }, /*#__PURE__*/_react.default.createElement("option", null, "All"), _pet.ANIMALS.map(function (animal) {
     return /*#__PURE__*/_react.default.createElement("option", {
+      key: animal,
       value: animal
     }, animal);
   }))), /*#__PURE__*/_react.default.createElement("button", null, "Submit")));

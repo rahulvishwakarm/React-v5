@@ -31559,24 +31559,25 @@ var UseState = function UseState() {
       AnimalDropdown = _useDropdown2[1];
 
   var _useDropdown3 = (0, _UseDropdown.default)("Breed", "", breeds),
-      _useDropdown4 = _slicedToArray(_useDropdown3, 2),
+      _useDropdown4 = _slicedToArray(_useDropdown3, 3),
       breed = _useDropdown4[0],
-      BreedDropdown = _useDropdown4[1];
+      BreedDropdown = _useDropdown4[1],
+      setBreed = _useDropdown4[2];
 
   (0, _react.useEffect)(function () {
     //Use effect is use to show some thing to the user as soon as API runs , it runs after all the content in above or below it runs
-    setBreads([]);
+    setBreeds([]);
     setBreed("");
 
     _pet.default.breeds(animal).then(function (_ref) {
       var breeds = _ref.breeds;
-      var breedStrings = breed.map(function (_ref2) {
+      var breedStrings = breeds.map(function (_ref2) {
         var name = _ref2.name;
         return name;
       });
       setBreeds(breedStrings);
     }, console.error);
-  });
+  }, [animal]);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "searchparams"
   }, /*#__PURE__*/_react.default.createElement("h1", null, location), /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("label", {

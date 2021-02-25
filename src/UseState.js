@@ -9,17 +9,17 @@ const UseState=()=> {
     const [location,setLocation] = useState("Mumbai,Mahrashtra"); //Hooks start with use
     const [breeds,setBreeds] = useState([]);
     const [animal,AnimalDropdown] = useDropdown("Animal","dog",ANIMALS);
-    const [breed,BreedDropdown] = useDropdown("Breed","",breeds);
+    const [breed,BreedDropdown,setBreed] = useDropdown("Breed","",breeds);
 
     useEffect(()=>{   //Use effect is use to show some thing to the user as soon as API runs , it runs after all the content in above or below it runs
-        setBreads([]);
+        setBreeds([]);
         setBreed("");
 
         pet.breeds(animal).then(({ breeds})=>{
-            const breedStrings =breed.map(({name}) => name);
+            const breedStrings =breeds.map(({name}) => name);
             setBreeds(breedStrings);
         },console.error);
-    });
+    },[animal]);
 
     return (
         <div className="searchparams">

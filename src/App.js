@@ -1,6 +1,6 @@
 import React from 'react'
 import {render} from 'react-dom'
-import SearchParams_Hooks from './SearchParams_Hooks'
+import UseState from './UseState'
 // import Pet from './Pet';
 
 const App = () =>{
@@ -23,7 +23,7 @@ const App = () =>{
             <Pet name="Saif" rollno="654"/>
             <Pet name="Aman" rollno="618"/> */}
             
-            <SearchParams_Hooks/>
+            <UseState/>
 
         </div>
     )

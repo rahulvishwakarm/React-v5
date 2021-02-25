@@ -29772,38 +29772,53 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"App.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"Pet.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Pet;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Pet(_ref) {
+  var name = _ref.name,
+      rollno = _ref.rollno;
+  return _react.default.createElement("div", {}, [_react.default.createElement("h1", {}, name), _react.default.createElement("h2", {}, rollno)]);
+}
+
+;
+},{"react":"../node_modules/react/index.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = require("react-dom");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _Pet = _interopRequireDefault(require("./Pet"));
 
-var Pet = function Pet(_ref) {
-  var name = _ref.name,
-      rollno = _ref.rollno;
-  return _react.default.createElement("div", {}, [_react.default.createElement("h1", {}, name), _react.default.createElement("h2", {}, rollno)]);
-};
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
   return _react.default.createElement("div", {
     id: "appcomponent"
-  }, [_react.default.createElement(Pet, {
+  }, [_react.default.createElement(_Pet.default, {
     name: "Rahul",
     rollno: "615"
-  }), _react.default.createElement(Pet, {
+  }), _react.default.createElement(_Pet.default, {
     name: "Saif",
     rollno: "654"
-  }), _react.default.createElement(Pet, {
+  }), _react.default.createElement(_Pet.default, {
     name: "Aman",
     rollno: "615"
   })]);
 };
 
 (0, _reactDom.render)(_react.default.createElement(App), document.getElementById("root"));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./Pet":"Pet.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

@@ -32913,12 +32913,9 @@ require("./index.css");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 class Details extends _react.default.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true
-    };
-  }
+  state = {
+    loading: true
+  };
 
   componentDidMount() {
     //This runs only once

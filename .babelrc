@@ -1,0 +1,6 @@
+// babel is used to convert ecmascripts to javscript (if not suppoerted ecmascripts)
+
+{
+    "presets" :[ "@babel/preset-react","@babel/preset-env" ],
+    "plugins":["@babel/plugin-proposal-class-properties"]
+}

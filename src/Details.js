@@ -3,12 +3,7 @@ import pet from '@frontendmasters/pet';
 import './index.css';
 class Details extends React.Component{
 
-    constructor(props){
-        super(props);
-        this.state={
-            loading:true
-        };
-    }
+    state = {loading:true};
     componentDidMount () { //This runs only once
         pet.animal(this.props.id)
         .then(({animal}) => {

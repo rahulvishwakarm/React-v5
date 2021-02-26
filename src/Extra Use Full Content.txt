@@ -1,0 +1,82 @@
+Types of React Components
+
+
+1. Functional Components
+
+function Title()
+{
+    return <h1>I am Title</h1>;
+}
+
+
+2. Class Components
+
+class Title extends React.Component
+{
+    render(){
+        return <h1>I am Title</h1>;
+    }
+}
+
+
+3. Higher-Order Components
+
+const hoc = (MyComponent) => (props) => {
+    return (
+        <div>
+            <MyComponent {...props}>
+                {props.children.toUpperCase()}
+            </MyComponent>
+        </div>
+    )
+}
+
+
+4. Dumb Components
+
+export default Title => () => (
+    <h1>I am Title</h1>
+);
+
+
+5. Smart Components
+
+export default title => class MyComponent extends Other.Component {
+    render() {
+        return (
+            <h1>I am Title</h1>
+        );
+    }
+}
+
+
+6. Presentational Components
+
+const List = props =>  
+    (
+        <ul>    
+            {props.list.map(user =>  
+                (<li>{items}</li>    )) 
+            } 
+        </ul>
+    )
+
+
+7. Container components
+
+class ListContainer extends React.Component{
+constructor()  
+    {  
+        this.state = {    
+        items: []     
+        } 
+    }  
+    componentDidMount() {    
+        axios.get('/list').then(
+        items=>this.setState({ list: items}))     
+        )  
+    } 
+    render() { 
+    return<Usersusers={this.state.items} />   
+    }}
+

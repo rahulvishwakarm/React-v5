@@ -8,7 +8,7 @@ class ErrorBoundaries extends Component {
         return { hasError: true};
     }
     componentDidCatch(error,info){
-        console.error("ErrorBoundary acugh an error",error,info)
+        console.error("ErrorBoundary caugh an error",error,info)
     }
 
     componentDidUpdate(){

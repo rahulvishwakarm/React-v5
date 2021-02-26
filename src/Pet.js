@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.css';
 
 export default function Pet({ name, animal,breed,media,location,id }){
 
@@ -10,7 +11,9 @@ export default function Pet({ name, animal,breed,media,location,id }){
     if(media.length){
         hero=media[0].small;
     }
+    
     return (
+        <div className="aligning">
         <a href={`/details/${id}`} className="pet">
             <div className="image-container">
                 <img src={hero} alt={name}/>
@@ -20,6 +23,8 @@ export default function Pet({ name, animal,breed,media,location,id }){
                 <h2>{`${animal} - ${breed} - ${location}`}</h2>
             </div>
         </a>
+        </div>
     )
+    
     
 };

@@ -32818,7 +32818,24 @@ const Results = ({
 
 var _default = Results;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Pet":"Pet.js"}],"UseState.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Pet":"Pet.js"}],"ThemeContext.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+const ThemeContext = /*#__PURE__*/(0, _react.createContext)(["green", () => {}]);
+var _default = ThemeContext;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"UseState.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32834,6 +32851,8 @@ var _UseDropdown = _interopRequireDefault(require("./UseDropdown"));
 
 var _Results = _interopRequireDefault(require("./Results"));
 
+var _ThemeContext = _interopRequireDefault(require("./ThemeContext"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -32848,6 +32867,7 @@ const UseState = () => {
   const [animal, AnimalDropdown] = (0, _UseDropdown.default)("Animal", "dog", _pet.ANIMALS);
   const [breed, BreedDropdown, setBreed] = (0, _UseDropdown.default)("Breed", "", breeds);
   const [pets, setPets] = (0, _react.useState)([]);
+  const [theme] = (0, _react.useContext)(_ThemeContext.default);
 
   async function requestPets() {
     //Asyns is the function that guarantee to return Promise
@@ -32889,14 +32909,18 @@ const UseState = () => {
     value: location,
     placeholder: "Location",
     onChange: event => setLocation(event.target.value)
-  })), /*#__PURE__*/_react.default.createElement(AnimalDropdown, null), /*#__PURE__*/_react.default.createElement(BreedDropdown, null), /*#__PURE__*/_react.default.createElement("button", null, " Submit ")), /*#__PURE__*/_react.default.createElement(_Results.default, {
+  })), /*#__PURE__*/_react.default.createElement(AnimalDropdown, null), /*#__PURE__*/_react.default.createElement(BreedDropdown, null), /*#__PURE__*/_react.default.createElement("button", {
+    style: {
+      color: theme
+    }
+  }, " Submit ")), /*#__PURE__*/_react.default.createElement(_Results.default, {
     pets: pets
   }));
 };
 
 var _default = UseState;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./UseDropdown":"UseDropdown.js","./Results":"Results.js"}],"Carosuel.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./UseDropdown":"UseDropdown.js","./Results":"Results.js","./ThemeContext":"ThemeContext.js"}],"Carosuel.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33114,24 +33138,7 @@ class Details extends _react.default.Component {
 function DetailsWithErrorBoundary(props) {
   return /*#__PURE__*/_react.default.createElement(_ErrorBoundaries.default, null, /*#__PURE__*/_react.default.createElement(Details, props), " ");
 }
-},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./index.css":"index.css","./Carosuel":"Carosuel.js","./ErrorBoundaries":"ErrorBoundaries.js"}],"ThemeContext.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireWildcard(require("react"));
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-const ThemeContext = /*#__PURE__*/(0, _react.createContext)(["green", () => {}]);
-var _default = ThemeContext;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./index.css":"index.css","./Carosuel":"Carosuel.js","./ErrorBoundaries":"ErrorBoundaries.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireWildcard(require("react"));

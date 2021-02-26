@@ -32750,6 +32750,8 @@ var _react = _interopRequireDefault(require("react"));
 
 require("./index.css");
 
+var _router = require("@reach/router");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Pet({
@@ -32772,8 +32774,8 @@ function Pet({
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "aligning"
-  }, /*#__PURE__*/_react.default.createElement("a", {
-    href: `/details/${id}`,
+  }, /*#__PURE__*/_react.default.createElement(_router.Link, {
+    to: `/details/${id}`,
     className: "pet"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "image-container"
@@ -32786,7 +32788,7 @@ function Pet({
 }
 
 ;
-},{"react":"../node_modules/react/index.js","./index.css":"index.css"}],"Results.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./index.css":"index.css","@reach/router":"../node_modules/@reach/router/es/index.js"}],"Results.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32867,7 +32869,7 @@ const UseState = () => {
   const [animal, AnimalDropdown] = (0, _UseDropdown.default)("Animal", "dog", _pet.ANIMALS);
   const [breed, BreedDropdown, setBreed] = (0, _UseDropdown.default)("Breed", "", breeds);
   const [pets, setPets] = (0, _react.useState)([]);
-  const [theme] = (0, _react.useContext)(_ThemeContext.default);
+  const [theme, setTheme] = (0, _react.useContext)(_ThemeContext.default);
 
   async function requestPets() {
     //Asyns is the function that guarantee to return Promise
@@ -32909,9 +32911,23 @@ const UseState = () => {
     value: location,
     placeholder: "Location",
     onChange: event => setLocation(event.target.value)
-  })), /*#__PURE__*/_react.default.createElement(AnimalDropdown, null), /*#__PURE__*/_react.default.createElement(BreedDropdown, null), /*#__PURE__*/_react.default.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement(AnimalDropdown, null), /*#__PURE__*/_react.default.createElement(BreedDropdown, null), /*#__PURE__*/_react.default.createElement("label", {
+    htmlFor: "theme"
+  }, "Theme", /*#__PURE__*/_react.default.createElement("select", {
+    value: theme,
+    onChange: e => setTheme(e.target.value),
+    onBlur: e => setTheme(e.target.value)
+  }, /*#__PURE__*/_react.default.createElement("option", {
+    value: "peru"
+  }, "Peru"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "olive"
+  }, "Olive"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "lightblue"
+  }, "Light Blue"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "chartreuse"
+  }, "Chart Reuse"))), /*#__PURE__*/_react.default.createElement("button", {
     style: {
-      color: theme
+      backgroundColor: theme
     }
   }, " Submit ")), /*#__PURE__*/_react.default.createElement(_Results.default, {
     pets: pets

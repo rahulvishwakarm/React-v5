@@ -13,7 +13,7 @@ const UseState=()=> {
     const [animal,AnimalDropdown] = useDropdown("Animal","dog",ANIMALS);
     const [breed,BreedDropdown,setBreed] = useDropdown("Breed","",breeds);
     const [pets,setPets] = useState([]);
-    const [theme] = useContext(ThemeContext);
+    const [theme,setTheme] = useContext(ThemeContext);
 
 
     async function requestPets(){  //Asyns is the function that guarantee to return Promise
@@ -48,7 +48,20 @@ const UseState=()=> {
                 </label>
                 <AnimalDropdown/>
                 <BreedDropdown/>
-                <button style={{color:theme}}> Submit </button>
+                <label htmlFor="theme">
+                    Theme
+                    <select
+                        value={theme}
+                        onChange={e => setTheme(e.target.value)}
+                        onBlur={e => setTheme(e.target.value)}
+                    >
+                        <option value="peru">Peru</option>
+                        <option value="olive">Olive</option>
+                        <option value="lightblue">Light Blue</option>
+                        <option value="chartreuse">Chart Reuse</option>
+                    </select>
+                </label>
+                <button style={{backgroundColor:theme}}> Submit </button>
             </form>
             <Results pets={pets}/>
         </div>

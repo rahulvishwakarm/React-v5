@@ -2,6 +2,7 @@ import React from 'react'
 import pet from '@frontendmasters/pet';
 import './index.css';
 import Carosuel from './Carosuel';
+import ErrorBoundaries from './ErrorBoundaries';
 
 class Details extends React.Component{
 
@@ -41,4 +42,14 @@ class Details extends React.Component{
     }
 }
 
-export default Details;
+export default function DetailsWithErrorBoundary(props){
+    return (
+        <ErrorBoundaries>
+            <Details {...props}/> {/** Spread props throughout Details*/}
+            {/** This Can also be written as
+             * 
+             * <Details is={props.id}/>
+            */}
+        </ErrorBoundaries> 
+    )
+}

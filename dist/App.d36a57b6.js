@@ -32782,7 +32782,7 @@ function Pet({
     alt: name
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: "info"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, "name"), /*#__PURE__*/_react.default.createElement("h2", null, `${animal} - ${breed} - ${location}`))));
+  }, /*#__PURE__*/_react.default.createElement("h1", null, name), /*#__PURE__*/_react.default.createElement("h2", null, `${animal} - ${breed} - ${location}`))));
 }
 
 ;
@@ -32971,13 +32971,64 @@ class Carosuel extends _react.Component {
 
 var _default = Carosuel;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"Details.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"ErrorBoundaries.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+var _router = require("@reach/router");
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+class ErrorBoundaries extends _react.Component {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "state", {
+      hasError: false
+    });
+  }
+
+  static getDerivedStateFromError() {
+    return {
+      hasError: true
+    };
+  }
+
+  componentDidCatch(error, info) {
+    console.error("ErrorBoundary acugh an error", error, info);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return /*#__PURE__*/_react.default.createElement("h1", null, "There was some error with the listing. ", /*#__PURE__*/_react.default.createElement(_router.Link, {
+        to: "/"
+      }, "Click here"), "to go to the home page or wait 5 seconds");
+    }
+
+    return this.props.children;
+  }
+
+}
+
+var _default = ErrorBoundaries;
+exports.default = _default;
+},{"@reach/router":"../node_modules/@reach/router/es/index.js","react":"../node_modules/react/index.js"}],"Details.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = DetailsWithErrorBoundary;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -32986,6 +33037,8 @@ var _pet = _interopRequireDefault(require("@frontendmasters/pet"));
 require("./index.css");
 
 var _Carosuel = _interopRequireDefault(require("./Carosuel"));
+
+var _ErrorBoundaries = _interopRequireDefault(require("./ErrorBoundaries"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33042,9 +33095,10 @@ class Details extends _react.default.Component {
 
 }
 
-var _default = Details;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./index.css":"index.css","./Carosuel":"Carosuel.js"}],"App.js":[function(require,module,exports) {
+function DetailsWithErrorBoundary(props) {
+  return /*#__PURE__*/_react.default.createElement(_ErrorBoundaries.default, null, /*#__PURE__*/_react.default.createElement(Details, props), " ");
+}
+},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./index.css":"index.css","./Carosuel":"Carosuel.js","./ErrorBoundaries":"ErrorBoundaries.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));

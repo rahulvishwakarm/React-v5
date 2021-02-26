@@ -32832,7 +32832,7 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const ThemeContext = /*#__PURE__*/(0, _react.createContext)(["green", () => {}]);
+const ThemeContext = /*#__PURE__*/(0, _react.createContext)(["red", () => {}]);
 var _default = ThemeContext;
 exports.default = _default;
 },{"react":"../node_modules/react/index.js"}],"UseState.js":[function(require,module,exports) {
@@ -33079,6 +33079,8 @@ var _Carosuel = _interopRequireDefault(require("./Carosuel"));
 
 var _ErrorBoundaries = _interopRequireDefault(require("./ErrorBoundaries"));
 
+var _ThemeContext = _interopRequireDefault(require("./ThemeContext"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -33130,7 +33132,11 @@ class Details extends _react.default.Component {
       className: "details"
     }, /*#__PURE__*/_react.default.createElement(_Carosuel.default, {
       media: media
-    }), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, name), /*#__PURE__*/_react.default.createElement("h2", null, `${animal} - ${breed} - ${location}`), /*#__PURE__*/_react.default.createElement("button", null, "Adopt ", name), /*#__PURE__*/_react.default.createElement("p", null, description)));
+    }), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, name), /*#__PURE__*/_react.default.createElement("h2", null, `${animal} - ${breed} - ${location}`), /*#__PURE__*/_react.default.createElement(_ThemeContext.default.Consumer, null, ([theme]) => /*#__PURE__*/_react.default.createElement("button", {
+      style: {
+        backgroundColor: theme
+      }
+    }, "Adopt ", name)), /*#__PURE__*/_react.default.createElement("p", null, description)));
   }
 
 }
@@ -33138,7 +33144,7 @@ class Details extends _react.default.Component {
 function DetailsWithErrorBoundary(props) {
   return /*#__PURE__*/_react.default.createElement(_ErrorBoundaries.default, null, /*#__PURE__*/_react.default.createElement(Details, props), " ");
 }
-},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./index.css":"index.css","./Carosuel":"Carosuel.js","./ErrorBoundaries":"ErrorBoundaries.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./index.css":"index.css","./Carosuel":"Carosuel.js","./ErrorBoundaries":"ErrorBoundaries.js","./ThemeContext":"ThemeContext.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireWildcard(require("react"));
@@ -33170,7 +33176,7 @@ const App = () => {
   //             React.createElement(Pet,{name:"Aman",rollno:"618"})
   //         ]
   //     );
-  const thereHook = (0, _react.useState)('darkblue');
+  const thereHook = (0, _react.useState)('olive');
   return /*#__PURE__*/_react.default.createElement(_react.default.StrictMode, null, /*#__PURE__*/_react.default.createElement(_ThemeContext.default.Provider, {
     value: thereHook
   }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement(_router.Link, {

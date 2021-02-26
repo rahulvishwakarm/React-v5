@@ -18,7 +18,7 @@ const App = () =>{
     //         ]
     //     );
 
-    const thereHook = useState('darkblue')
+    const thereHook = useState('olive')
 
     return(
         <React.StrictMode>

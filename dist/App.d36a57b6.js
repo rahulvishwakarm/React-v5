@@ -32832,8 +32832,8 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const Details = () => {
-  return /*#__PURE__*/_react.default.createElement("h1", null, "hi lol");
+const Details = props => {
+  return /*#__PURE__*/_react.default.createElement("pre", null, /*#__PURE__*/_react.default.createElement("code", null, JSON.stringify(props, null, 4)));
 };
 
 var _default = Details;

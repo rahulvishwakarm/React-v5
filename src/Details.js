@@ -1,6 +1,8 @@
 import React from 'react'
 import pet from '@frontendmasters/pet';
 import './index.css';
+import Carosuel from './Carosuel';
+
 class Details extends React.Component{
 
     state = {loading:true};
@@ -22,11 +24,12 @@ class Details extends React.Component{
         if(this.state.loading){
             return <h1>Loading...<div class="loader"></div></h1>
         }
-        const {animal,breed,location,description,name} = this.state;
+        const {animal,breed,location,description,name,media} = this.state;
 
         this.state.loading
         return (
             <div className="details">
+                <Carosuel media={media} />
                 <div>
                     <h1>{name}</h1>
                     <h2>{`${animal} - ${breed} - ${location}`}</h2>

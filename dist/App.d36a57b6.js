@@ -31577,7 +31577,7 @@ var UseState = function UseState() {
       });
       setBreeds(breedStrings);
     }, console.error);
-  }, [animal]);
+  }, [animal, setBreed, setBreeds]);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "searchparams"
   }, /*#__PURE__*/_react.default.createElement("h1", null, location), /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("label", {
@@ -31616,7 +31616,7 @@ var App = function App() {
   //             React.createElement(Pet,{name:"Aman",rollno:"618"})
   //         ]
   //     );
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_UseState.default, null));
+  return /*#__PURE__*/_react.default.createElement(_react.default.StrictMode, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_UseState.default, null)));
 };
 
 (0, _reactDom.render)(
@@ -31651,7 +31651,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61599" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65297" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

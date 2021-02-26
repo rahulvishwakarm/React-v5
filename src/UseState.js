@@ -19,7 +19,7 @@ const UseState=()=> {
             const breedStrings =breeds.map(({name}) => name);
             setBreeds(breedStrings);
         },console.error);
-    },[animal]);
+    },[animal,setBreed,setBreeds]);
 
     return (
         <div className="searchparams">

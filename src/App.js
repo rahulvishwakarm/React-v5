@@ -16,16 +16,15 @@ const App = () =>{
     //     );
 
     return(
-        <div>
-
-            {/* <h1>Adopt Me!</h1>
-            <Pet name="Rahul" rollno="615"/>
-            <Pet name="Saif" rollno="654"/>
-            <Pet name="Aman" rollno="618"/> */}
-            
-            <UseState/>
-
-        </div>
+        <React.StrictMode>
+            <div>
+                {/* <h1>Adopt Me!</h1>
+                <Pet name="Rahul" rollno="615"/>
+                <Pet name="Saif" rollno="654"/>
+                <Pet name="Aman" rollno="618"/> */}
+                <UseState/>
+            </div>
+        </React.StrictMode>
     )
 };
 

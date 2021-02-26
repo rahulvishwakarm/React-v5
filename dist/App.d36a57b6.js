@@ -31496,13 +31496,33 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function Pet({
   name,
-  breed
+  animal,
+  breed,
+  media,
+  location,
+  id
 }) {
   // return React.createElement("div", {}, [
   //     React.createElement("h1", {}, name),
   //     React.createElement("h2", {}, rollno)
   // ]);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, name), /*#__PURE__*/_react.default.createElement("h2", null, breed));
+  let hero = 'https://placeorgi.com/300/300';
+
+  if (media.length) {
+    hero = media[0].small;
+  }
+
+  return /*#__PURE__*/_react.default.createElement("a", {
+    href: `/details/${id}`,
+    className: "pet"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "image-container"
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: hero,
+    alt: name
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: "info"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "name"), /*#__PURE__*/_react.default.createElement("h2", null, `${animal} - ${breed} - ${location}`)));
 }
 
 ;

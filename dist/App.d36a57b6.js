@@ -31482,7 +31482,63 @@ const UseDropdown = (label, defaultState, options) => {
 
 var _default = UseDropdown;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"UseState.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"Pet.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Pet;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Pet({
+  name,
+  breed
+}) {
+  // return React.createElement("div", {}, [
+  //     React.createElement("h1", {}, name),
+  //     React.createElement("h2", {}, rollno)
+  // ]);
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, name), /*#__PURE__*/_react.default.createElement("h2", null, breed));
+}
+
+;
+},{"react":"../node_modules/react/index.js"}],"Results.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Pet = _interopRequireDefault(require("./Pet"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const Results = ({
+  pets
+}) => {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "search"
+  }, pets.length === 0 ? /*#__PURE__*/_react.default.createElement("h1", null, "No pets Found") : pets.map(pet => /*#__PURE__*/_react.default.createElement(_Pet.default, {
+    animal: pet.type,
+    key: pet.id,
+    name: pet.name,
+    breed: pet.breed,
+    media: pet.photos,
+    location: `${pet.contact.address.city},${pet.contact.address.state}`,
+    id: pet.id
+  })));
+};
+
+var _default = Results;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./Pet":"Pet.js"}],"UseState.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31495,6 +31551,8 @@ var _react = _interopRequireWildcard(require("react"));
 var _pet = _interopRequireWildcard(require("@frontendmasters/pet"));
 
 var _UseDropdown = _interopRequireDefault(require("./UseDropdown"));
+
+var _Results = _interopRequireDefault(require("./Results"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31551,12 +31609,14 @@ const UseState = () => {
     value: location,
     placeholder: "Location",
     onChange: event => setLocation(event.target.value)
-  })), /*#__PURE__*/_react.default.createElement(AnimalDropdown, null), /*#__PURE__*/_react.default.createElement(BreedDropdown, null), /*#__PURE__*/_react.default.createElement("button", null, " Submit ")));
+  })), /*#__PURE__*/_react.default.createElement(AnimalDropdown, null), /*#__PURE__*/_react.default.createElement(BreedDropdown, null), /*#__PURE__*/_react.default.createElement("button", null, " Submit ")), /*#__PURE__*/_react.default.createElement(_Results.default, {
+    pets: pets
+  }));
 };
 
 var _default = UseState;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./UseDropdown":"UseDropdown.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./UseDropdown":"UseDropdown.js","./Results":"Results.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));

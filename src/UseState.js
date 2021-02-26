@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import pet,{ANIMALS} from  '@frontendmasters/pet';
 import useDropdown from './UseDropdown';
+import Results from './Results';
 
 const UseState=()=> {
 
@@ -19,7 +20,7 @@ const UseState=()=> {
             type:animal
         })
 
-        setPets(animals || [])
+        setPets(animals || []);
     }
 
     useEffect(()=>{   //Use effect is use to show some thing to the user as soon as API runs , it runs after all the content in above or below it runs
@@ -46,6 +47,7 @@ const UseState=()=> {
                 <BreedDropdown/>
                 <button> Submit </button>
             </form>
+            <Results pets={pets}/>
         </div>
     )
 }

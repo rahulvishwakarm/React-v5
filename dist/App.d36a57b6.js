@@ -32864,7 +32864,9 @@ const App = () => {
   //             React.createElement(Pet,{name:"Aman",rollno:"618"})
   //         ]
   //     );
-  return /*#__PURE__*/_react.default.createElement(_react.default.StrictMode, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_router.Router, null, /*#__PURE__*/_react.default.createElement(_UseState.default, {
+  return /*#__PURE__*/_react.default.createElement(_react.default.StrictMode, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement(_router.Link, {
+    to: "/"
+  }, "Adopt Me!")), /*#__PURE__*/_react.default.createElement(_router.Router, null, /*#__PURE__*/_react.default.createElement(_UseState.default, {
     path: "/"
   }), /*#__PURE__*/_react.default.createElement(_Details.default, {
     path: "/details/:id"

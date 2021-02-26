@@ -10,6 +10,17 @@ const UseState=()=> {
     const [breeds,setBreeds] = useState([]);
     const [animal,AnimalDropdown] = useDropdown("Animal","dog",ANIMALS);
     const [breed,BreedDropdown,setBreed] = useDropdown("Breed","",breeds);
+    const [pets,setPets] = useState([]);
+
+    async function requestPets(){  //Asyns is the function that guarantee to return Promise
+        const {animals} = await pet.animals({
+            location,
+            breed,
+            type:animal
+        })
+
+        setPets(animals || [])
+    }
 
     useEffect(()=>{   //Use effect is use to show some thing to the user as soon as API runs , it runs after all the content in above or below it runs
         setBreeds([]);
@@ -24,7 +35,10 @@ const UseState=()=> {
     return (
         <div className="searchparams">
             <h1>{location}</h1>
-            <form>
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                requestPets();
+            }}>
                 <label htmlFor="">Location
                     <input id="location" value={location} placeholder="Location" onChange={event=>setLocation(event.target.value)}/>
                 </label>

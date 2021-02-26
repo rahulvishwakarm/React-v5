@@ -32912,10 +32912,16 @@ require("./index.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 class Details extends _react.default.Component {
-  state = {
-    loading: true
-  };
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "state", {
+      loading: true
+    });
+  }
 
   componentDidMount() {
     //This runs only once
@@ -32948,6 +32954,7 @@ class Details extends _react.default.Component {
       description,
       name
     } = this.state;
+    this.state.loading;
     return /*#__PURE__*/_react.default.createElement("div", {
       className: "details"
     }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, name), /*#__PURE__*/_react.default.createElement("h2", null, `${animal} - ${breed} - ${location}`), /*#__PURE__*/_react.default.createElement("button", null, "Adopt ", name), /*#__PURE__*/_react.default.createElement("p", null, description)));

@@ -23,6 +23,8 @@ class Details extends React.Component{
             return <h1>Loading...<div class="loader"></div></h1>
         }
         const {animal,breed,location,description,name} = this.state;
+
+        this.state.loading
         return (
             <div className="details">
                 <div>

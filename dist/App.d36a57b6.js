@@ -33231,6 +33231,8 @@ var _Details = _interopRequireDefault(require("./Details"));
 
 var _ThemeContext = _interopRequireDefault(require("./ThemeContext"));
 
+require("./index.css");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -33264,7 +33266,7 @@ const App = () => {
 /*#__PURE__*/
 // React.createElement(App),
 _react.default.createElement(App, null), document.getElementById("root"));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./UseState":"UseState.js","./Details":"Details.js","./ThemeContext":"ThemeContext.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./UseState":"UseState.js","./Details":"Details.js","./ThemeContext":"ThemeContext.js","./index.css":"index.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

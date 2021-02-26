@@ -4,6 +4,7 @@ import {Link, Router} from '@reach/router';
 import UseState from './UseState';
 import Details from './Details';
 import ThemeContext from './ThemeContext';
+import './index.css';
 // import Pet from './Pet';
 
 const App = () =>{

@@ -8,6 +8,7 @@ class Details extends React.Component{
 
     state = {loading:true};
     componentDidMount () { //This runs only once
+        // throw new Error("Rahul_Test_Error");   //This linw will create error, then page will be redired to home
         pet.animal(this.props.id)
         .then(({animal}) => {
             this.setState({
@@ -26,7 +27,6 @@ class Details extends React.Component{
             return <h1>Loading...<div class="loader"></div></h1>
         }
         const {animal,breed,location,description,name,media} = this.state;
-
         this.state.loading
         return (
             <div className="details">

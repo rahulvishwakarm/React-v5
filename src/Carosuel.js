@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 class Carosuel extends Component {
+
     state = {
         photos:[],
         active:0

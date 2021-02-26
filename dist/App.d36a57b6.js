@@ -32994,7 +32994,8 @@ class ErrorBoundaries extends _react.Component {
     super(...args);
 
     _defineProperty(this, "state", {
-      hasError: false
+      hasError: false,
+      redirect: false
     });
   }
 
@@ -33008,7 +33009,21 @@ class ErrorBoundaries extends _react.Component {
     console.error("ErrorBoundary acugh an error", error, info);
   }
 
+  componentDidUpdate() {
+    if (this.state.hasError) {
+      setTimeout(() => this.setState({
+        redirect: true
+      }), 5000);
+    }
+  }
+
   render() {
+    if (this.state.redirect) {
+      return /*#__PURE__*/_react.default.createElement(_router.Redirect, {
+        to: "/"
+      });
+    }
+
     if (this.state.hasError) {
       return /*#__PURE__*/_react.default.createElement("h1", null, "There was some error with the listing. ", /*#__PURE__*/_react.default.createElement(_router.Link, {
         to: "/"
@@ -33055,6 +33070,7 @@ class Details extends _react.default.Component {
 
   componentDidMount() {
     //This runs only once
+    // throw new Error("Rahul_Test_Error");   //This linw will create error, then page will be redired to home
     _pet.default.animal(this.props.id).then(({
       animal
     }) => {
